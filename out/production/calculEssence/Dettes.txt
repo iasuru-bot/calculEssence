@@ -1,3 +1,3 @@
-Axel;0
-Guigui;0
-Matteo;0
+Axel;3
+Guigui;-3
+Matteo;-3

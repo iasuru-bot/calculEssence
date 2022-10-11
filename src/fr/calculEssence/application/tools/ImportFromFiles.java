@@ -30,7 +30,7 @@ public class ImportFromFiles {
             String dettePersonne = morceaux[1];
 
             //création de la personne
-            Personne personne = new Personne(nomPersonne,Integer.parseInt(dettePersonne));
+            Personne personne = new Personne(nomPersonne, Integer.parseInt(dettePersonne));
 
             // ajout dans un tableau de personne
             listPersonne.add(personne);
@@ -57,15 +57,14 @@ public class ImportFromFiles {
             String date = morceaux[3];
 
 
-
             String[] tabPassagers = passagers.split(",");
             ArrayList<String> listPassagers = new ArrayList<>();
-            for (String passager: tabPassagers) {
+            for (String passager : tabPassagers) {
                 listPassagers.add(passager);
             }
             //création d'un voyage
             Voyage voyage;
-            if (date.isBlank()){
+            if (date.isBlank()) {
                 voyage = new Voyage(conducteur, listPassagers, Float.parseFloat(prixEssence));
             } else {
                 voyage = new Voyage(conducteur, listPassagers, date, Float.parseFloat(prixEssence));
