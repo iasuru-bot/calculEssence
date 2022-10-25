@@ -7,7 +7,7 @@ public class Voyage {
     private ArrayList<String> passagers;
     private String date;
 
-    //Prix au l au moment actuel
+    //Prix au L au moment actuel
     private float prixEssence;
 
     public Voyage(String conducteur, ArrayList<String> passagers, float prixEssence) {

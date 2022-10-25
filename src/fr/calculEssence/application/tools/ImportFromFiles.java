@@ -10,7 +10,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class ImportFromFiles {
@@ -30,7 +29,7 @@ public class ImportFromFiles {
             String dettePersonne = morceaux[1];
 
             //création de la personne
-            Personne personne = new Personne(nomPersonne, Integer.parseInt(dettePersonne));
+            Personne personne = new Personne(nomPersonne, Float.parseFloat(dettePersonne));
 
             // ajout dans un tableau de personne
             listPersonne.add(personne);
