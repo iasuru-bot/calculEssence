@@ -11,22 +11,6 @@ import java.util.Scanner;
 
 public class Application {
     public static void main(String[] args) throws IOException {
-        //Creation des personnes et de l'historique
-        ImportFromFiles importFromFiles = new ImportFromFiles();
-        ArrayList<Personne> listPersonne = new ArrayList<>();
-        try {
-            listPersonne = importFromFiles.CreationPersonne();
-        } catch (IOException e) {
-            e.printStackTrace();
-            System.err.println("Problème rencontré lors de la création des personnes");
-        }
-        Historique historique = null;
-        try {
-            historique = importFromFiles.CreationHistorique();
-        } catch (IOException e) {
-            e.printStackTrace();
-            System.err.println("Problème rencontré lors de l'historique");
-        }
 
         //accueil du menu
         System.out.println("                  _____       _____\n" +
@@ -55,6 +39,23 @@ public class Application {
         Scanner scanner = new Scanner(System.in);
         PressEnterToContinue.Press(scanner);
         do {
+            //Creation des personnes et de l'historique
+            ImportFromFiles importFromFiles = new ImportFromFiles();
+            ArrayList<Personne> listPersonne = new ArrayList<>();
+            try {
+                listPersonne = importFromFiles.CreationPersonne();
+            } catch (IOException e) {
+                e.printStackTrace();
+                System.err.println("Problème rencontré lors de la création des personnes");
+            }
+            Historique historique = null;
+            try {
+                historique = importFromFiles.CreationHistorique();
+            } catch (IOException e) {
+                e.printStackTrace();
+                System.err.println("Problème rencontré lors de l'historique");
+            }
+
 
             //Affichage menu
             CadreSortie.Cadre(" Veuillez choisir une proposition: \n 1-Voir les dettes \n 2-Gérer les dettes\n 3-Voir l'historique des voyages\n 4-Ajouter un trajet \n 5-Quitter");
@@ -75,11 +76,12 @@ public class Application {
                     gererDette.changerSoldes(listPersonne, scanner);
                 }
                 case 3 -> {
-
+                    System.out.println(historique.toString());
+                    PressEnterToContinue.Press(scanner);
                 }
                 case 4 -> {
                     GererEssence gererEssence = new GererEssence();
-                    gererEssence.ajoutVoyage(listPersonne, scanner);
+                    gererEssence.ajoutVoyage(listPersonne,historique, scanner);
 
                 }
                 case 5 -> fin = true;

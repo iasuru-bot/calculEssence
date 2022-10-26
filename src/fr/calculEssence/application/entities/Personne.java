@@ -2,9 +2,9 @@ package fr.calculEssence.application.entities;
 
 public class Personne {
     private String nom;
-    private Float dette;
+    private double dette;
 
-    public Personne(String nom, Float dette) {
+    public Personne(String nom, double dette) {
         this.nom = nom;
         this.dette = dette;
     }
@@ -17,21 +17,24 @@ public class Personne {
         this.nom = nom;
     }
 
-    public float getDette() {
+    public double getDette() {
         return dette;
     }
 
 
-    public void setDette(float dette) {
+    public void setDette(double dette) {
         this.dette = dette;
     }
 
-    //TODO a changer
+
+
     @Override
     public String toString() {
+        float dette2 = (float) (Math.round(this.dette * 100.0) / 100.0);
+        String detteString = Float.toString(dette2);
         return "Personne{" +
                 "nom='" + nom + '\'' +
-                ", dette=" + dette +
+                ", dette=" + detteString +
                 '}';
     }
 }

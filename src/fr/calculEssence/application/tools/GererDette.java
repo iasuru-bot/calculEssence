@@ -35,26 +35,28 @@ public class GererDette {
         }
         Personne personneAvecSoldeAModifier = listPersonne.get(choixPersonne - 1);
         listPersonne.remove(choixPersonne - 1);
-        System.out.println(personneAvecSoldeAModifier.toString());
 
         PressEnterToContinue.Press(scanner);
         //Get nouveau solde
         int valide = 0;
-        int nouveauSolde;
+        float nouveauSolde;
         do {
             System.out.println("Le solde actuel de " + personneAvecSoldeAModifier.getNom() + " est de " + personneAvecSoldeAModifier.getDette());
             CadreSortie.Cadre("Entrez la nouvelle valeur du solde de " + personneAvecSoldeAModifier.getNom());
 
             nouveauSolde = 0;
             try {
-                nouveauSolde = scanner.nextInt();
+                nouveauSolde = scanner.nextFloat();
             } catch (InputMismatchException e) {
                 System.err.println("Vous n'avez pas saisi une bonne valeur");
             }
 
+            CadreSortie.Barre();
             System.out.println("Le solde actuel de " + personneAvecSoldeAModifier.getNom() + " est de " + nouveauSolde);
 
             System.out.println("Entrez 1 si cela vous convient 0 sinon");
+
+            CadreSortie.Barre();
             try {
                 valide = scanner.nextInt();
             } catch (InputMismatchException e) {

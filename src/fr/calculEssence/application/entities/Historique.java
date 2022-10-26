@@ -18,11 +18,12 @@ public class Historique {
         this.logs = logs;
     }
 
-    //TODO A changer
     @Override
     public String toString() {
-        return "Historique{" +
-                "voyage=" + logs +
-                '}';
+        String response = null;
+        for (Voyage voyage: this.logs) {
+            response+= voyage.toString()+"\n";
+        }
+        return response;
     }
 }

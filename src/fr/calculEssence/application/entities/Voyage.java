@@ -55,14 +55,12 @@ public class Voyage {
         this.prixEssence = prixEssence;
     }
 
-    //TODO a changer
+
     @Override
     public String toString() {
-        return "Voyage{" +
-                "conducteur='" + conducteur + '\'' +
-                ", passagers=" + passagers +
-                ", date='" + date + '\'' +
-                ", prixEssence=" + prixEssence +
-                '}';
+        return "Le voyage a eu lieu le " +date +
+                ". Le conducteur était " + conducteur +
+                ". Il y avait comme passagers " + passagers +
+                ". Le prix de l'essence était " + prixEssence ;
     }
 }

@@ -69,7 +69,6 @@ public class ImportFromFiles {
                 voyage = new Voyage(conducteur, listPassagers, date, Float.parseFloat(prixEssence));
             }
             //ajout dans l'historique
-            System.out.println(voyage);
             historique.getLogs().add(voyage);
 
         }

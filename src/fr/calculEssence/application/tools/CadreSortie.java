@@ -1,7 +1,10 @@
 package fr.calculEssence.application.tools;
 
 public class CadreSortie {
-
+    //méthode permettant d'afficher un cadre de sortie avec des #
+    public static void Barre() {
+        System.out.println("####################################################################################################");
+    }
     //méthode permettant d'afficher un cadre de sortie avec des #
     public static void Cadre(String valeur) {
         System.out.println("####################################################################################################");
