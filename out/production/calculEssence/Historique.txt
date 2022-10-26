@@ -1,0 +1,12 @@
+Guigui;Axel;1.67;12:12
+Axel;Guigui,Matteo;2.0;13:14
+Matteo;Axel,Guigui;1.701;12:12
+Matteo;Axel,Guigui;1.701;12:12
+Matteo;Axel,Guigui;1.701;12:12
+Axel;Matteo,Guigui;1.703;12:&2
+Axel;Matteo,Guigui;1.73;12:12
+Matteo;Axel,Guigui;2.0;12"2
+Matteo;Axel;1.705;12/15
+Matteo;Axel,Guigui;1.708;12
+Axel;Guigui,Matteo;1.0;1
+Axel;Matteo,Guigui;600.0;12;12
