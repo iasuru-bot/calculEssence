@@ -1,0 +1,17 @@
+Matteo;Axel,Guigui;1.619;03/10
+Matteo;Axel,Guigui;1.619;04/10
+Matteo;Guigui;1.619;05/10
+Axel;Matteo,Guigui;1.9;10/10
+Guigui;Axel,Matteo;1.886;17/10
+Guigui;Axel,Matteo;1.886;17/10
+Guigui;Matteo;1.886;17/10
+Axel;Guigui,Matteo;1.84;14/11
+Axel;Guigui,Matteo;1.82;Blois
+Guigui;;1.82;blois
+Guigui;Axel,Matteo;1.88;21/10
+Guigui;Axel,Matteo;1.88;22/10
+Guigui;Matteo;1.88;projettresteSemaine
+Axel;Guigui,Matteo;1.85;11
+Axel;Guigui,Matteo;1.85;12
+Guigui;Axel,Matteo;1.83;11
+Guigui;Matteo;1.8;11

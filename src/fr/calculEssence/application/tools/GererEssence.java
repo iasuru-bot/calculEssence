@@ -23,6 +23,7 @@ public class GererEssence {
         List<Personne> passagers;
         float prixEssence;
         String dateTrajet;
+        int nbrTrajet;
         ArrayList<Personne> nonPassagers;
         do {
             CadreSortie.Barre();
@@ -104,6 +105,20 @@ public class GererEssence {
 
             CadreSortie.Barre();
 
+            //get Date
+            System.out.println("Combien de fois a été fais le trajet?");
+            nbrTrajet = 0;
+            do {
+                try {
+                    nbrTrajet = scanner.nextInt();
+                } catch (InputMismatchException e) {
+                    System.err.println("Vous n'avez pas saisi une bonne valeur");
+                }
+            } while (nbrTrajet == 0);
+            System.out.println("Le trajet a été fait " + nbrTrajet + "fois");
+
+            CadreSortie.Barre();
+
 
             //Validation du trajet
             System.out.println("Avant de passer au calcul, veuillez confirmer ces infos:\nLe conducteur est :" + conducteur.getNom());
@@ -111,6 +126,8 @@ public class GererEssence {
                 System.out.println(personne.getNom() + " est passager de ce voyage");
             }
             System.out.println("Le prix de l'essence est " + prixEssence + " €");
+
+            System.out.println("Le trajet a été fait " + nbrTrajet + "fois");
             System.out.println("La date du trajet est " + dateTrajet);
 
             System.out.println("Si toutes ces infos vous conviennent tapez 1 sinon 0");
@@ -123,7 +140,7 @@ public class GererEssence {
         } while (valide == 0);
 
         CadreSortie.Barre();
-        this.calculEssence(conducteur, passagers, prixEssence, dateTrajet, nonPassagers, historique);
+        this.calculEssence(conducteur, passagers, prixEssence, dateTrajet, nonPassagers, historique, nbrTrajet);
 
 
         CadreSortie.Cadre("Calcul terminé");
@@ -133,22 +150,27 @@ public class GererEssence {
 
     }
 
-    private void calculEssence(Personne conducteur, List<Personne> passagers, float prixEssence, String dateTrajet, ArrayList<Personne> nonPassagers, Historique historique) throws IOException {
+    private void calculEssence(Personne conducteur, List<Personne> passagers, float prixEssence, String dateTrajet, ArrayList<Personne> nonPassagers, Historique historique,int nombreTrajet) throws IOException {
         int kilometre = 50;
         int consommationAuCent = 6;
 
 
         ArrayList<Personne> listPersonne = new ArrayList<>();
         ArrayList<String> nomPassager = new ArrayList<>();
+
         double prixTotal = (((prixEssence * consommationAuCent) / 100) * kilometre);
         prixTotal = (Math.round(prixTotal * 100.0) / 100.0);
         int nbPassagers = passagers.size() + 1;
         double prixParPassager = (prixTotal / nbPassagers);
         prixParPassager = (Math.round(prixParPassager * 100.0) / 100.0);
-        conducteur.setDette(conducteur.getDette() - prixParPassager + prixTotal);
+        for (int i = 0; i < nombreTrajet; i++) {
+            conducteur.setDette(conducteur.getDette() - prixParPassager + prixTotal);
+        }
         listPersonne.add(conducteur);
         for (Personne passager : passagers) {
-            passager.setDette(passager.getDette() - prixParPassager);
+            for (int i = 0; i < nombreTrajet; i++) {
+                passager.setDette(passager.getDette() - prixParPassager);
+            }
             listPersonne.add(passager);
             nomPassager.add(passager.getNom());
         }
@@ -157,6 +179,7 @@ public class GererEssence {
         for (Personne personne : nonPassagers) {
             listPersonne.add(personne);
         }
+
         //Sauvegarder les dettes
         Sauvegarde.sauvegarderDette(listPersonne);
         CadreSortie.Cadre(" Nouvelle dette sauvegardé");
