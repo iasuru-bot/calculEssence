@@ -1,3 +1,3 @@
-Axel;1199.19
-Matteo;-587.27
-Guigui;-606.44
+Axel;63.62
+Guigui;-28.64
+Matteo;-35.04
